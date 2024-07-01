@@ -1,21 +1,11 @@
 import { useState, useEffect } from 'react'
 import axios from "axios"
 import './App.css'
-
+import Navbar from './components/Navbar'
 
 function App() {
-  const  [message , setMessage ] = useState("")
-
-  useEffect( ()=> {
-    axios.get('/api')
-    .then(response => setMessage(response.data))
-    .catch(error => console.error('error fetching data:', error));
-  }, []);
-
   return(
-    <div>
-       <p>{message}</p>
-    </div>
+    <Navbar />
   )
 }
 
