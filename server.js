@@ -3,14 +3,27 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(cors());
-const db = require('./models')
-const config = require('./config/config')
+const userRoutes = require('./routes/userRoutes')
+const connection = require('./db')
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/api/user', require('./routes/userRoutes'))
+app.use('/api/user', userRoutes);
 
-db.sequelize.sync().then(()=> {
-    const port = config.port;
-    app.listen(port, () => console.log(`server running on port ${port}`))
+// Check MySQL connection
+connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to the database:', err.stack);
+      return;
+    }
+    console.log('Connected to the database');
+  });
+
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+    console.log(`server listening on port ${port}`);
 })
+
+module.exports = app;
