@@ -2,14 +2,19 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import axios from "axios"
 import './App.css'
-import Navbar from './components/Navbar'
+import SignUp from './pages/SignUp'
+import Dashboard from './pages/Dashboard'
+import Home from './pages/Home'
+
 
 function App() {
   return(
     <BrowserRouter>
-      <div className='bg-slate-100 h-full w-full flex'>
-        <Navbar />
-      </div>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/Dashboard' element = {<Dashboard />} />
+          <Route path='/SignUp' element={<SignUp />} />
+        </Routes>
     </BrowserRouter>
 
   )

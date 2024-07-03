@@ -6,7 +6,7 @@ import { CiCirclePlus,CiShop } from "react-icons/ci";
 import { GiReceiveMoney } from "react-icons/gi";
 import { FaStairs } from "react-icons/fa6";
 import { BsQuestionCircle } from "react-icons/bs";
-
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () =>{
@@ -32,10 +32,12 @@ const Navbar = () =>{
                   <span><FaAngleDown/></span>
                </div>
               </div>
-            <div className="flex items-center my-3">
+              <Link to='/shop'>
+              <div className="flex items-center my-3">
                 <span className="mr-2"><CiShop /></span>
                 <p>Shop</p>
             </div>
+              </Link>
             <div className="flex items-center my-3">
                 <span className="mr-2"><GiReceiveMoney /></span>
                 <p>Income</p>
