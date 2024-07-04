@@ -1,5 +1,5 @@
 import React from "react";
-import '../App.css'
+import "../../App.css";
 import { IoHomeOutline, IoDiamondOutline, IoSunny } from "react-icons/io5";
 import { FaAngleDown, FaAngleUp, FaRegMoon } from "react-icons/fa";
 import { CiCirclePlus,CiShop } from "react-icons/ci";
